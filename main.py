@@ -4,8 +4,7 @@
 from XLS import *
 from MainWindow import *
 
-xls = XLS('simple.xls')
-print xls.dump()
 mainWindow = MainWindow()
-mainWindow.show()
+xls = XLS(mainWindow.getFileName())
+print xls.dump()
 
