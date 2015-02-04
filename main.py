@@ -3,8 +3,12 @@
 
 from XLS import *
 from MainWindow import *
+from ReportGenerator import *
 
 mainWindow = MainWindow()
 xls = XLS(mainWindow.getFileName())
-print xls.dump()
+#print xls.dump()
+
+reportGenerator = ReportGenerator(xls)
+reportGenerator.report1()
 
