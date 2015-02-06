@@ -13,8 +13,11 @@ class XLS:
         self.fileName = fileName 
         self.wb = open_workbook(self.fileName)
         self.sheets = self.wb.sheets()
+        self.datarowcount = self.sheets[SHEETNO].nrows - 1
     def getSheet(self,sheetNum):
         return self.wb.sheet_by_index(sheetNum)
+    def getDataRowCount(self):
+        return self.datarowcount
     def find(self,query):
         return '0'
     def dump(self):
@@ -36,3 +39,5 @@ class XLS:
             value = str(self.sheets[SHEETNO].cell(HEADERROW,col).value)
             self.fields[value] = col
         return self.fields
+    def getCell(self,row,col):
+        return self.sheets[SHEETNO].cell( 1 + row, col).value
