@@ -32,7 +32,7 @@ class ReportGenerator:
 
         outputReport = []
         outputReport.append(headers)
-        for outputLine in sorted(sorted(consolidatedDataDict.keys())):
+        for outputLine in sorted(consolidatedDataDict.keys()):
            outputReport.append(consolidatedDataDict.get(outputLine)) 
         return outputReport
 
