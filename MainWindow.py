@@ -14,7 +14,6 @@ class MainWindow:
         #print "this is items: " + str(items)
         for item in items:
             self.listbox.insert(END,item)
-        print str(self.listbox)
     def show(self,goButtonCallback):
         b = Button(self.root, text="GO!", command=lambda: goButtonCallback(self.listbox.curselection()))
         b.pack()

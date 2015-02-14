@@ -4,7 +4,7 @@ class ReportGenerator:
         self.sheetno = sheetno
         self.headerrow = headerrow
     def getDataRowCount(self):
-        print "sheetrowcount: " +str( self.xlsFile.getSheetRowCount(self.sheetno))
+        #print "sheetrowcount: " +str( self.xlsFile.getSheetRowCount(self.sheetno))
         return self.xlsFile.getSheetRowCount(self.sheetno) 
     def report1(self):
         print "report1"
