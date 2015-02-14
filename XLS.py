@@ -11,6 +11,8 @@ class XLS:
         return self.wb.sheet_by_index(sheetNum)
     def getSheetRowCount(self,sheetNum):
         return self.sheets[sheetNum].nrows
+    def getSheetColCount(self,sheetNum):
+        return self.sheets[sheetNum].ncols
     def find(self,query):
         return '0'
     def dump(self):

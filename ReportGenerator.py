@@ -38,7 +38,7 @@ class ReportGenerator:
 
     def enumFields(self):
         self.fields = []
-        for col in range(self.xlsFile.getSheetRowCount(self.sheetno)):
+        for col in range(self.xlsFile.getSheetColCount(self.sheetno)):
             value = str(self.xlsFile.getCell(self.sheetno,self.headerrow,col))
             self.fields.append(value)
         return self.fields
