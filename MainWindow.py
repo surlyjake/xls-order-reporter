@@ -1,5 +1,6 @@
 from Tkinter import * 
 from tkFileDialog import askopenfilename
+from tkFileDialog import asksaveasfilename
 
 class MainWindow:
     def __init__(self):
@@ -13,10 +14,10 @@ class MainWindow:
         #print "this is items: " + str(items)
         for item in items:
             self.listbox.insert(END,item)
+        print str(self.listbox)
     def show(self,goButtonCallback):
         b = Button(self.root, text="GO!", command=lambda: goButtonCallback(self.listbox.curselection()))
         b.pack()
         self.root.mainloop()
-        
-        
-        
+    def getSaveAsFileName(self):
+        return asksaveasfilename(defaultextension='.xls') 

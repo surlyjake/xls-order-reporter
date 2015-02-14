@@ -1,23 +1,16 @@
 from xlrd import open_workbook
 from xlwt import Workbook
 
-# Hardcoded values to find the right fields
-SHEETNO=0
-# Header row
-HEADERROW=0
-
-
 class XLS:
     """The Excel File"""
     def __init__(self, fileName):
         self.fileName = fileName 
         self.wb = open_workbook(self.fileName)
         self.sheets = self.wb.sheets()
-        self.datarowcount = self.sheets[SHEETNO].nrows - 1
     def getSheet(self,sheetNum):
         return self.wb.sheet_by_index(sheetNum)
-    def getDataRowCount(self):
-        return self.datarowcount
+    def getSheetRowCount(self,sheetNum):
+        return self.sheets[sheetNum].nrows
     def find(self,query):
         return '0'
     def dump(self):
@@ -33,11 +26,6 @@ class XLS:
                     output += ','.join(values)
                     output += "||\n"
         return output
-    def enumFields(self):
-        self.fields = {}
-        for col in range(self.sheets[SHEETNO].ncols):
-            value = str(self.sheets[SHEETNO].cell(HEADERROW,col).value)
-            self.fields[value] = col
-        return self.fields
-    def getCell(self,row,col):
-        return self.sheets[SHEETNO].cell( 1 + row, col).value
+    def getCell(self,sheetno,row,col):
+        #print "sheetno: " + str(sheetno) + "row: " + str(row) + "col: " + str(col)
+        return self.sheets[sheetno].cell( row, col).value
